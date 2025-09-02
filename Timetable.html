@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Water's 14‑Day JavaScript Chill Timetable</title>
+    <style>
+      :root {
+        --bg: #0b0f1a;
+        --card: #121826;
+        --muted: #8aa0c5;
+        --ink: #e8eefc;
+        --accent: #7c5cff;
+        --accent-2: #2de2e6;
+        --ok: #22c55e;
+        --warn: #f59e0b;
+        --radius: 16px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 24px;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+          Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        background: radial-gradient(
+            1200px 800px at 20% -10%,
+            #162036 0%,
+            var(--bg) 50%
+          ),
+          radial-gradient(1000px 700px at 120% 10%, #18233a 0%, var(--bg) 50%),
+          var(--bg);
+        color: var(--ink);
+      }
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        display: grid;
+        gap: 20px;
+      }
+      header {
+        display: grid;
+        gap: 8px;
+        background: linear-gradient(
+          180deg,
+          rgba(124, 92, 255, 0.15),
+          rgba(45, 226, 230, 0.1)
+        );
+        border: 1px solid rgba(124, 92, 255, 0.25);
+        padding: 20px;
+        border-radius: var(--radius);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      }
+      h1 {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        margin: 0;
+      }
+      p.lead {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.03),
+          rgba(255, 255, 255, 0.01)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius);
+        padding: 16px;
+        display: grid;
+        gap: 10px;
+        transition: transform 0.15s ease, box-shadow 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(124, 92, 255, 0.35);
+        box-shadow: 0 10px 24px rgba(124, 92, 255, 0.15);
+      }
+
+      .day-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .badge {
+        font-size: 12px;
+        color: var(--bg);
+        background: var(--accent-2);
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+
+      details {
+        border-top: 1px dashed rgba(255, 255, 255, 0.12);
+        padding-top: 10px;
+        margin-top: 2px;
+      }
+      summary {
+        cursor: pointer;
+        color: var(--muted);
+      }
+
+      ul {
+        margin: 0 0 0 18px;
+      }
+      li {
+        margin-bottom: 6px;
+      }
+
+      .task {
+        display: grid;
+        gap: 8px;
+      }
+      .task label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+      }
+      input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        appearance: none;
+        border: 2px solid rgba(255, 255, 255, 0.25);
+        border-radius: 6px;
+        display: grid;
+        place-items: center;
+        transition: border-color 0.15s ease, background 0.15s ease;
+      }
+      input[type="checkbox"]:checked {
+        background: var(--ok);
+        border-color: var(--ok);
+      }
+
+      .resources {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px dashed rgba(255, 255, 255, 0.15);
+        padding: 14px;
+        border-radius: var(--radius);
+        color: var(--muted);
+      }
+
+      footer {
+        color: var(--muted);
+        text-align: center;
+        font-size: 13px;
+        margin-top: 8px;
+      }
+      a {
+        color: var(--accent-2);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Water's 14‑Day JavaScript Chill Timetable</h1>
+        <p class="lead">
+          1–2 bites per day. Keep it breezy, stay consistent. Check things off
+          as you go ✅
+        </p>
+        <div class="resources">
+          Quick refs:
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+            target="_blank"
+            rel="noreferrer noopener"
+            >MDN JS</a
+          >
+          ·
+          <a
+            href="https://javascript.info/"
+            target="_blank"
+            rel="noreferrer noopener"
+            >javascript.info</a
+          >
+        </div>
+      </header>
+
+      <section class="grid">
+        <!-- Week 1 -->
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 1 — Storage 101</h3>
+            <span class="badge">Week 1</span>
+          </div>
+          <ul>
+            <li>
+              Learn: <strong>localStorage</strong> &
+              <strong>sessionStorage</strong>
+            </li>
+            <li>Mini task: Save a username and show it on reload</li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li>
+                <code>localStorage.setItem(key, value)</code>,
+                <code>localStorage.getItem(key)</code>
+              </li>
+              <li>
+                Remember: values are strings → use <code>JSON.stringify</code> /
+                <code>JSON.parse</code> for objects
+              </li>
+            </ul>
+          </details>
+          <div class="task">
+            <label
+              ><input type="checkbox" /> I saved and displayed the
+              username</label
+            >
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 2 — Timers</h3>
+            <span class="badge">Week 1</span>
+          </div>
+          <ul>
+            <li>
+              Learn: <strong>setTimeout</strong> & <strong>setInterval</strong>
+            </li>
+            <li>Mini task: Build a digital clock</li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li>Update DOM every second with <code>setInterval</code></li>
+              <li>Cleanup with <code>clearInterval</code> when needed</li>
+            </ul>
+          </details>
+          <label><input type="checkbox" /> Clock works and ticks ⏱️</label>
+        </article>
+
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 3 — Promises</h3>
+            <span class="badge">Week 1</span>
+          </div>
+          <ul>
+            <li>
+              Learn: <strong>Promise</strong>, <code>.then</code> &
+              <code>.catch</code>
+            </li>
+            <li>Mini task: Fake data loading with a promise + timeout</li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li>
+                <code>new Promise((res) =&gt; setTimeout(res, 1000))</code>
+              </li>
+              <li>
+                Chain <code>.then</code> and handle errors with
+                <code>.catch</code>
+              </li>
+            </ul>
+          </details>
+          <label
+            ><input type="checkbox" /> I understand basic promise flow</label
+          >
+        </article>
+
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 4 — Fetch API</h3>
+            <span class="badge">Week 1</span>
+          </div>
+          <ul>
+            <li>Learn: <strong>fetch</strong> basics</li>
+            <li>Mini task: Fetch posts and display titles</li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li><code>fetch(url).then(r =&gt; r.json())</code></li>
+              <li>Render into a <code>&lt;ul&gt;</code> dynamically</li>
+            </ul>
+          </details>
+          <label
+            ><input type="checkbox" /> Posts render without page reload</label
+          >
+        </article>
+
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 5 — Async/Await</h3>
+            <span class="badge">Week 1</span>
+          </div>
+          <ul>
+            <li>Learn: <strong>async</strong> / <strong>await</strong></li>
+            <li>Mini task: Rebuild Day 4 using async/await</li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li><code>const data = await (await fetch(url)).json()</code></li>
+              <li>Wrap in <code>try...catch</code> to handle errors</li>
+            </ul>
+          </details>
+          <label><input type="checkbox" /> Cleaner async flow achieved</label>
+        </article>
+
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 6 — Closures</h3>
+            <span class="badge">Week 1</span>
+          </div>
+          <ul>
+            <li>Learn: <strong>Closures</strong></li>
+            <li>Mini task: Counter with <em>increment</em> & <em>reset</em></li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li>Return an inner function that "remembers" outer scope</li>
+              <li>Expose methods: <code>inc()</code>, <code>reset()</code></li>
+            </ul>
+          </details>
+          <label><input type="checkbox" /> Counter remembers its value</label>
+        </article>
+
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 7 — Project: Todo (v1)</h3>
+            <span class="badge">Week 1</span>
+          </div>
+          <ul>
+            <li>Add tasks</li>
+            <li>Save in <strong>localStorage</strong></li>
+            <li>Render on reload</li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li>
+                Persist array of todos → <code>JSON.stringify</code> /
+                <code>JSON.parse</code>
+              </li>
+              <li>Re-render list after each change</li>
+            </ul>
+          </details>
+          <label><input type="checkbox" /> v1 works locally</label>
+        </article>
+
+        <!-- Week 2 -->
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 8 — ES Modules</h3>
+            <span class="badge">Week 2</span>
+          </div>
+          <ul>
+            <li>Learn: <strong>export</strong> / <strong>import</strong></li>
+            <li>Mini task: Split utils into a separate file</li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li>Use <code>type="module"</code> on your script tag</li>
+              <li>Named vs default exports</li>
+            </ul>
+          </details>
+          <label><input type="checkbox" /> Modules wired up</label>
+        </article>
+
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 9 — Event Delegation</h3>
+            <span class="badge">Week 2</span>
+          </div>
+          <ul>
+            <li>One listener to rule them all</li>
+            <li>Mini task: Handle clicks for a dynamic list</li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li>Listen on parent; check <code>event.target</code></li>
+              <li>Great for dynamic elements (e.g., todo delete)</li>
+            </ul>
+          </details>
+          <label><input type="checkbox" /> Delegation feels comfy</label>
+        </article>
+
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 10 — Error Handling</h3>
+            <span class="badge">Week 2</span>
+          </div>
+          <ul>
+            <li>Learn: <strong>try...catch</strong>, graceful UI errors</li>
+            <li>Mini task: Show a user-friendly error box on failed fetch</li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li>Network can fail → always handle it</li>
+              <li>Consider retry or offline message</li>
+            </ul>
+          </details>
+          <label><input type="checkbox" /> Errors don't crash UX</label>
+        </article>
+
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 11 — Array Power-Ups</h3>
+            <span class="badge">Week 2</span>
+          </div>
+          <ul>
+            <li>
+              Learn: <code>some</code>, <code>every</code>, <code>find</code>
+            </li>
+            <li>Mini task: Search/filter a list</li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li>
+                <code>some</code> = any match, <code>every</code> = all match
+              </li>
+              <li><code>find</code> returns the first matching item</li>
+            </ul>
+          </details>
+          <label><input type="checkbox" /> Search feature works</label>
+        </article>
+
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 12 — JSON Mastery</h3>
+            <span class="badge">Week 2</span>
+          </div>
+          <ul>
+            <li>
+              Learn: <strong>JSON.stringify</strong> /
+              <strong>JSON.parse</strong>
+            </li>
+            <li>Mini task: Persist & retrieve a settings object</li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li>Store as string; parse back into object</li>
+              <li>Version your schema if you iterate later</li>
+            </ul>
+          </details>
+          <label><input type="checkbox" /> Settings survive reload</label>
+        </article>
+
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 13 — Project: Weather App</h3>
+            <span class="badge">Week 2</span>
+          </div>
+          <ul>
+            <li>Fetch real or mock weather data</li>
+            <li>Show city, temp, condition</li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li>Free APIs exist; or mock with a local JSON file</li>
+              <li>Indicate loading + error states</li>
+            </ul>
+          </details>
+          <label><input type="checkbox" /> Weather renders nicely</label>
+        </article>
+
+        <article class="card">
+          <div class="day-title">
+            <h3>Day 14 — Project: Todo (v2)</h3>
+            <span class="badge">Week 2</span>
+          </div>
+          <ul>
+            <li>Add delete & complete toggles</li>
+            <li>Filters: All / Active / Completed</li>
+            <li>Optional: Persist with a simple module structure</li>
+          </ul>
+          <details>
+            <summary>Hints</summary>
+            <ul>
+              <li>Use event delegation for list actions</li>
+              <li>Sync state ↔ storage on each change</li>
+            </ul>
+          </details>
+          <label><input type="checkbox" /> v2 shipped 🚢</label>
+        </article>
+      </section>
+
+      <footer>
+        Built for Water • Keep it fun. Small wins daily → big glow‑up.
+      </footer>
+    </div>
+  </body>
+</html>
