@@ -5,7 +5,7 @@ It’s designed to be **lightweight, stress-free, and interactive** — you chec
 
 ---
 
-## 📖 About the Timetable
+## About the Timetable
 The timetable is split into **two weeks**:
 - **Week 1** → Core concepts like storage, timers, promises, async/await, closures, and a first mini project (Todo v1).  
 - **Week 2** → More advanced topics like ES modules, event delegation, error handling, array methods, JSON, and two bigger projects (Weather App + Todo v2).  
@@ -18,7 +18,7 @@ Each **day card** shows:
 
 ---
 
-## ✨ Features
+## Features
 - **Responsive HTML & CSS** design (works in any browser).  
 - **14 days of content**, divided into Week 1 & Week 2.  
 - **Progress checkboxes** to keep track of what’s done.  
@@ -27,22 +27,22 @@ Each **day card** shows:
 
 ---
 
-## 🚀 How to Use
+## How to Use
 1. Open `index.html` in any browser.  
 2. Each day, read the topic, check the hints, and complete the mini task.  
-3. Tick the checkbox once you’re done ✅.  
+3. Tick the checkbox once you’re done.  
 4. Move to the next day at your own pace.  
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 project-folder/
 │── index.html # The 14-day interactive timetable
 │── README.md # Documentation
 
 ---
 
-## 📌 Example
+## Example
 **Day 4 — Fetch API**
 - Learn: `fetch` basics  
 - Mini task: Fetch posts and display titles  
@@ -52,7 +52,7 @@ project-folder/
 
 ---
 
-## 📝 Why This Timetable?
+## Why This Timetable?
 Instead of cramming, this plan focuses on **1–2 small bites per day**.  
 By the end of 14 days, you’ll have built:  
 - A **Todo app (v1 & v2)**  
@@ -61,6 +61,6 @@ By the end of 14 days, you’ll have built:
 
 ---
 
-## 📜 License
+## License
 Free to use, modify, and share.  
-Keep it fun. Small wins daily → big glow-up 🚀
+Keep it fun. Small wins daily → big glow-up .
